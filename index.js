@@ -17,7 +17,9 @@ app.get('/recipies', (req, res) => {
 });
 app.get('/recipies/:id', (req, res) => {
   const id = req.params.id;
-  const selectedRecipe = recipies.find((recipe) => recipe.id);
+  const selectedRecipe = recipies.find(
+    (recipe) => parseInt(recipe.id) === parseInt(id)
+  );
   res.send(selectedRecipe);
 });
 app.listen(port, () => {
