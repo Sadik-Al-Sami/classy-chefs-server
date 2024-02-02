@@ -15,6 +15,11 @@ app.get('/chefs', (req, res) => {
 app.get('/recipies', (req, res) => {
   res.send(recipies);
 });
+app.get('/recipies/:id', (req, res) => {
+  const id = req.params.id;
+  const selectedRecipe = recipies.find((recipe) => recipe.id);
+  res.send(selectedRecipe);
+});
 app.listen(port, () => {
   console.log('API is running');
 });
