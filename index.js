@@ -22,6 +22,13 @@ app.get('/recipies/:id', (req, res) => {
   );
   res.send(selectedRecipe);
 });
+app.get('/chef/:id', (req, res) => {
+  const id = req.params.id;
+  const selectedChef = recipies.filter(
+    (recipe) => parseInt(recipe.chef_id) === parseInt(id)
+  );
+  res.send(selectedChef);
+});
 app.listen(port, () => {
   console.log('API is running');
 });
