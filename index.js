@@ -29,6 +29,11 @@ app.get('/chef/:id', (req, res) => {
   );
   res.send(selectedChef);
 });
+app.get('/chefs/:id', (req, res) => {
+  const id = req.params.id;
+  const selectedChef = chefs.find((chef) => parseInt(chef.id) === parseInt(id));
+  res.send(selectedChef);
+});
 app.listen(port, () => {
   console.log('API is running');
 });
